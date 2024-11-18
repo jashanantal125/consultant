@@ -1,21 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity, Linking, Alert} from 'react-native';
 
 interface Chat {
   id: string;
   clientName: string;
   service: string;
   minutes: number;
+  phoneNumber : string
 }
 
 const chats: Chat[] = [
-  { id: '1', clientName: 'John Doe', service: 'Vedic Astrology', minutes: 5 },
-  { id: '2', clientName: 'Jane Smith', service: 'Tarot Cards', minutes: 10 },
-  { id: '3', clientName: 'Alice Johnson', service: 'Palmistry', minutes: 20 },
-  { id: '2', clientName: 'John Ase Smith', service: 'Tarot Cards', minutes: 10 },
-  { id: '3', clientName: 'Ali King', service: 'Palmistry', minutes: 20 },
+  { id: '1', clientName: 'John Doe', service: 'Vedic Astrology', minutes: 5, phoneNumber: '+1234567890' },
+  { id: '2', clientName: 'Jane Smith', service: 'Tarot Cards', minutes: 10, phoneNumber: '+9876543210' },
+  { id: '3', clientName: 'Alice Johnson', service: 'Palmistry', minutes: 20, phoneNumber: '+1122334455' },
+  { id: '4', clientName: 'John Ase Smith', service: 'Tarot Cards', minutes: 10, phoneNumber: '+2233445566' },
+  { id: '5', clientName: 'Ali King', service: 'Palmistry', minutes: 20, phoneNumber: '+3344556677' },
   // Add more chats as needed
 ];
+
 
 const CallScreen: React.FC = () => {
   const handleChatNow = (clientName: string) => {
@@ -23,17 +25,31 @@ const CallScreen: React.FC = () => {
     // Add navigation to the chat screen or chat functionality here
   };
 
-  const renderItem = ({ item }: { item: Chat }) => (
-    <View style={styles.chatCard}>
-      <Text style={styles.clientName}>{item.clientName}</Text>
-      <Text style={styles.service}>{item.service}</Text>
-      <Text style={styles.minutes}>{item.minutes} minutes</Text>
-      <TouchableOpacity style={styles.button} onPress={() => handleChatNow(item.clientName)}>
-        <Text style={styles.buttonText}>Call Now</Text>
-      </TouchableOpacity>
-    </View>
-  );
-
+  const renderItem = ({ item }: { item: Chat }) => {
+    const handleCallNow = (phoneNumber: string) => {
+      const phoneUrl = `tel:${phoneNumber}`;
+      Linking.canOpenURL(phoneUrl)
+        .then((supported) => {
+          if (supported) {
+            Linking.openURL(phoneUrl);
+          } else {
+            Alert.alert('Error', 'Phone calls are not supported on this device.');
+          }
+        })
+        .catch((err) => console.error('Error checking phone call support:', err));
+    };
+  
+    return (
+      <View style={styles.chatCard}>
+        <Text style={styles.clientName}>{item.clientName}</Text>
+        <Text style={styles.service}>{item.service}</Text>
+        <Text style={styles.minutes}>{item.minutes} minutes</Text>
+        <TouchableOpacity style={styles.button} onPress={() => handleCallNow(item.phoneNumber)}>
+          <Text style={styles.buttonText}>Call Now</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Your Customers</Text>
