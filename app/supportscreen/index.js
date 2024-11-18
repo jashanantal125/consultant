@@ -25,7 +25,7 @@ const SupportScreen = () => {
   };
 
   // Hardcoded values for demonstration
-  const userName = 'Astrotalk Support'; // Replace with actual user's name
+  const userName = 'Support'; // Replace with actual user's name
   // const profilePic = require('../../assets/images/man.png'); // Replace with actual profile picture source
 
   return (

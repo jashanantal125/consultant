@@ -12,6 +12,10 @@ const paymentHistory: PaymentHistoryItem[] = [
   { id: '1', date: '2024-07-01', description: 'Payment from client', amount: '+₹120' },
   { id: '2', date: '2024-07-02', description: 'Payment from client', amount: '+₹200' },
   { id: '3', date: '2024-07-03', description: 'Payment from client', amount: '+₹30' },
+  { id: '2', date: '2024-07-02', description: 'Payment from client', amount: '+₹200' },
+  { id: '3', date: '2024-07-03', description: 'Payment from client', amount: '+₹30' },
+  { id: '2', date: '2024-07-02', description: 'Payment from client', amount: '+₹200' },
+  { id: '3', date: '2024-07-03', description: 'Payment from client', amount: '+₹30' },
   // Add more items as needed
 ];
 

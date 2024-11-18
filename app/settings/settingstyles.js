@@ -36,10 +36,10 @@ const settingsPageStyles = StyleSheet.create({
       },
 
       iconsContainer: {
-        flexDirection: 'row',
-    justifyContent: 'space-between', 
-    paddingHorizontal: '10%',
-    marginTop: '10%'
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    gap:16,
+    marginTop:16
       },
 
 });

@@ -13,6 +13,8 @@ const chats: Chat[] = [
   { id: '1', clientName: 'John Doe', service: 'Vedic Astrology', minutes: 30 },
   { id: '2', clientName: 'Jane Smith', service: 'Tarot Cards', minutes: 45 },
   { id: '3', clientName: 'Alice Johnson', service: 'Palmistry', minutes: 20 },
+  { id: '2', clientName: 'Jnki Smith', service: 'Tarot Cards', minutes: 45 },
+  { id: '3', clientName: 'Qice Joson', service: 'Palmistry', minutes: 20 },
   // Add more chats as needed
 ];
 

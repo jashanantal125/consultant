@@ -9,82 +9,82 @@ export const mainPageStyles = StyleSheet.create({
     },
 
     container: {
-        flex: 35,
-        backgroundColor: 'white',
-        flexDirection: 'column',
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#4CAF50',
     },
 
     secondContainer: {
-        flex: 65,
+        flex: 1,
         backgroundColor: '#4CAF50',
         alignItems: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
-
-
+    titlecontainer:{
+        backgroundColor:'',
+        borderRadius:20,
+        borderWidth:4,
+        borderColor:'white',
+        alignItems:'center',
+    },
     title: {
         fontSize: 28,
-        fontWeight: '400',
-        top: '10%',
+        fontWeight: '800',
+        color:'white',
+        padding:20,
+        paddingHorizontal:30,
+
     },
 
-    firstChat: {
-        fontSize: 16,
+    logintitle: {
+        fontSize: 24,
+        fontWeight:'700',
+        color:'white',
+        marginHorizontal:14
+    },
+
+    loginsubtitle: {
+        fontSize: 18,
+        fontWeight:'400',
+        color:'white',
+        margin:14
     },
 
     firstChatContainer: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'white',
-        width: '75%',
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 20,
-        height: '5%',
-        zIndex: 1,
-        position: 'absolute',
-        top: '32.5%',
-        left: '12%',
-        
+        backgroundColor: '#4CAF50',
     },
 
     phoneContainer: {
-        backgroundColor: 'white',
-        width: '75%',
-        height: '6%',
-        position: 'relative',
-        bottom: '32%',
         borderColor: 'white',
         borderWidth: 1,
         borderRadius: 10,
-        display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        padding:12,
+        marginHorizontal:20, 
+        marginBottom:20
+    },
+    logo:{
+        height:80,
+        width:80,
+        marginTop:12
     },
 
     button: {
-        width: '75%',
-        height: '6%',
         backgroundColor: 'black',
         borderRadius: 25,
-        alignItems: 'center',
-        justifyContent: 'center',
         borderWidth: 1,
         borderRadius: 10,
         shadowColor: 'red',
-        position: 'relative',
-        bottom: '28%',
-        
+        width:'90%'
     },
 
     textInButton: {
         color: 'white',
         fontSize: 16,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        alignSelf:'center',
+        padding:8,
     },
 
     whiteArrow: {
@@ -102,7 +102,7 @@ export const mainPageStyles = StyleSheet.create({
         flexDirection: 'row',
         top: '80%',
         width: '20%',
-        left: '15%',
+        left: '10%',
         alignContent: 'center',
         alignItems: 'center',
     },
@@ -146,7 +146,7 @@ export const mainPageStyles = StyleSheet.create({
     flag: {
         width: 40,
         height: 35,
-        borderRadius: 10,
+        borderRadius: 6,
     },
 
     formButton: {

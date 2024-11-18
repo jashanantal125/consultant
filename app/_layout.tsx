@@ -43,20 +43,97 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
 
-      <NavigationContainer independent={true}>
-        <Stack.Navigator initialRouteName="index">
-          <Stack.Screen name="index" component={Index}  options={{headerShown: false}}/>
-          <Stack.Screen name="homepage" component={HomePage} options={{headerShown: false}}/>
-          <Stack.Screen name="reviewscreen" component={ReviewsScreen} options={{headerShown: true}}/>
-          <Stack.Screen name="settings" component={SettingsPage} options={{ headerShown: true }} />
-          <Stack.Screen name="supportscreen" component={SupportScreen} options={{headerShown: true}}/>
-          <Stack.Screen name="wallet" component={Wallet} options={{headerShown: true}}/>
-          <Stack.Screen name="chatscreen" component={ChatsScreen} options={{headerShown: true}}/>
-          <Stack.Screen name="editprofile" component={EditProfile} options={{headerShown: true}}/>
-          <Stack.Screen name="callscreen" component={CallScreen} options={{headerShown: true}}/>
-          <Stack.Screen name="chat" component={ChatScreen} options={{headerShown: true}}/>
-        </Stack.Navigator>
-      </NavigationContainer>
+<NavigationContainer independent={true}>
+  <Stack.Navigator initialRouteName="index" screenOptions={{ headerBackTitle: '', headerTitleAlign: 'center' }}>
+    <Stack.Screen 
+      name="index" 
+      component={Index}  
+      options={{ headerShown: false }} 
+    />
+    <Stack.Screen 
+      name="homepage" 
+      component={HomePage} 
+      options={{ 
+        headerTitle: "Home Page", // Set the custom title here
+        headerBackTitleVisible: false, 
+        headerShown: false 
+      }} 
+    />
+    <Stack.Screen 
+      name="reviewscreen" 
+      component={ReviewsScreen} 
+      options={{ 
+        headerTitle: "My Reviews", // Custom title
+        headerBackTitleVisible: false, 
+        headerShown: true 
+      }} 
+    />
+    <Stack.Screen 
+      name="settings" 
+      component={SettingsPage} 
+      options={{ 
+        headerTitle: "Settings", // Custom title
+        headerBackTitleVisible: false, 
+        headerShown: true 
+      }} 
+    />
+    <Stack.Screen 
+      name="supportscreen" 
+      component={SupportScreen} 
+      options={{ 
+        headerTitle: "Support", // Custom title
+        headerBackTitleVisible: false, 
+        headerShown: true 
+      }} 
+    />
+    <Stack.Screen 
+      name="wallet" 
+      component={Wallet} 
+      options={{ 
+        headerTitle: "My Wallet", // Custom title
+        headerBackTitleVisible: false, 
+        headerShown: true 
+      }} 
+    />
+    <Stack.Screen 
+      name="chatscreen" 
+      component={ChatsScreen} 
+      options={{ 
+        headerTitle: "Chat", // Custom title
+        headerBackTitleVisible: false, 
+        headerShown: true 
+      }} 
+    />
+    <Stack.Screen 
+      name="editprofile" 
+      component={EditProfile} 
+      options={{ 
+        headerTitle: "Edit Profile", // Custom title
+        headerBackTitleVisible: false, 
+        headerShown: true 
+      }} 
+    />
+    <Stack.Screen 
+      name="callscreen" 
+      component={CallScreen} 
+      options={{ 
+        headerTitle: "Call", // Custom title
+        headerBackTitleVisible: false, 
+        headerShown: true 
+      }} 
+    />
+    <Stack.Screen 
+      name="chat" 
+      component={ChatScreen} 
+      options={{ 
+        headerTitle: "Chat Room", // Custom title
+        headerBackTitleVisible: false, 
+        headerShown: true 
+      }} 
+    />
+  </Stack.Navigator>
+</NavigationContainer>
+
     </GestureHandlerRootView>  //check now
   );
 }

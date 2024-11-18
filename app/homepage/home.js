@@ -1,50 +1,67 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
+
+const { width } = Dimensions.get('window');
 
 const homePageStyles = StyleSheet.create({
   Container: {
     flex: 1,
-    backgroundColor: '#F5F5F5', // Light background color
-    // paddingHorizontal: 20,
-    // paddingTop: 40,
+    backgroundColor: '#f5f5f5',
   },
   profileContainer: {
-    backgroundColor: '#4CAF50', // Background color beneath the text
-    paddingVertical: 20,
+    backgroundColor: '#4CAF50',
+    paddingVertical: 12,
     paddingHorizontal: 20,
-    
-    alignItems: 'center', // Center align the text
-    marginBottom: '10%', // Space between the profile container and buttons
+    marginBottom: 10,  // Space below profile section
+    flexDirection:'row', alignItems:'center', gap:14
   },
   mainText: {
     fontSize: 26,
     fontWeight: 'bold',
     color: 'white',
+    paddingTop: Platform.OS == 'ios' ? 35 : 0,
   },
-  firstIconContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between', // Space between the three buttons
-    marginBottom: '10%', // Space between the first row and second row of buttons
-    paddingHorizontal: '10%',
-},
-  secondIconContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between', // Space between the three buttons
-    paddingHorizontal: '10%',
+  subtitleText: {
+    fontSize: 18,
+    color: '#4CAF50',
+    marginTop: 8,
+    paddingHorizontal: 20,
+    fontWeight:'600',
+    paddingRight:40
   },
-
   bannerContainer: {
     alignContent: 'center',
     alignItems: 'center',
-    marginBottom: '10%',
-   },
-
-   bannerImage: {
-    alignContent: 'center',
-    width: '95%',
+    marginVertical: 20,  // Adds vertical spacing around the carousel
+    zIndex: 1,
+  },
+  carouselItem: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: width * 0.9,
     height: 180,
-    borderWidth: 0,
-    borderRadius: 15,
-   },
+    resizeMode: 'cover',
+    borderRadius: 10,
+  },
+  firstIconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  secondIconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  carouselParent: {
+    height: 200,
+    marginTop: 20,
+  },
+  sectionSubtitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    marginVertical: 15,
+    color: '#333',
+  },
 });
 
 export default homePageStyles;

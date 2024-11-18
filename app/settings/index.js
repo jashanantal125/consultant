@@ -27,7 +27,7 @@ export default function SettingsPage() {
         <View>
             <View style={settingsPageStyles.profileContainer}>
                 {/* <Image source={man} style={settingsPageStyles.profileImage} /> */}
-                <Text style={settingsPageStyles.profileName}>Jashan Antal</Text>
+                <Text style={settingsPageStyles.profileName}>User</Text>
             </View>
             <View style={settingsPageStyles.iconsContainer}>
                 <CustomButton
