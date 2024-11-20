@@ -53,7 +53,7 @@ const homePageStyles = StyleSheet.create({
   },
   secondIconContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    gap: 18,
   },
   carouselParent: {
     height: 200,

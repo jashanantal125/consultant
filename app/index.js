@@ -22,7 +22,7 @@ const Index = () => {
 
       // Handle the response
       if (data?.message?.success_key === 1) {
-        Alert.alert('Success', 'OTP sent!');
+        // Alert.alert('Success', 'OTP sent!');
         navigation.navigate('homepage'); // Navigate to homepage on success
       } else {
         Alert.alert('Error', 'Sorry, you are not registered!');

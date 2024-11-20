@@ -66,6 +66,23 @@ export default function HomePage() {
         </View>
       </View>
 
+      {/* Carousel Section */}
+      <View style={homePageStyles.carouselParent}>
+        <Carousel
+          loop
+          width={width} // Adjust width of the carousel
+          height={200} // Adjust height of the carousel
+          autoPlay={true}
+          data={images}
+          scrollAnimationDuration={2000} // Optional: Adjust scroll speed
+          renderItem={({ index }) => (
+            <View style={homePageStyles.carouselItem}>
+              <Image source={images[index]} style={homePageStyles.image} />
+            </View>
+          )}
+        />
+      </View>
+
       <View>
         <Text style={homePageStyles.subtitleText}>
           Welcome to your dashboard! Manage your tasks, communications, and more
@@ -116,22 +133,6 @@ export default function HomePage() {
             onPress={() => navigation.navigate('supportscreen')}
           /> */}
         </View>
-      </View>
-      {/* Carousel Section */}
-      <View style={homePageStyles.carouselParent}>
-        <Carousel
-          loop
-          width={width} // Adjust width of the carousel
-          height={200} // Adjust height of the carousel
-          autoPlay={true}
-          data={images}
-          scrollAnimationDuration={2000} // Optional: Adjust scroll speed
-          renderItem={({ index }) => (
-            <View style={homePageStyles.carouselItem}>
-              <Image source={images[index]} style={homePageStyles.image} />
-            </View>
-          )}
-        />
       </View>
     </View>
   );
