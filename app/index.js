@@ -5,8 +5,9 @@ import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, withRepeat, Easing } from 'react-native-reanimated';
 import { mainPageStyles } from './main';
+import { Colors } from '@/constants/Colors';
 
-const logo = require("../assets/images/astrology.png");
+const logo = require("../assets/images/krewlogo.png");
 
 export default function Index() {
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -34,47 +35,15 @@ export default function Index() {
         } else {
             Alert.alert('Sorry, you are not registered!');
         }
-        // navigation.navigate('homepage');
     };
 
-    useEffect(() => {
-        // Logo fade-in effect
-        logoOpacity.value = withTiming(1, { duration: 5000, easing: Easing.out(Easing.exp) });
-
-        // Title scale animation with looping pulsing effect
-        titleScale.value = withRepeat(
-            withTiming(1.2, { duration: 9000, easing: Easing.out(Easing.ease) }),
-            -1, // Loop indefinitely
-            true // Reverse direction on each loop for a pulsing effect
-        );
-
-        // Continuous rotation of the logo (360 degrees per loop)
-        rotation.value = withRepeat(
-            withTiming(360, {
-                duration: 9000, // Time for one full rotation
-                easing: Easing.linear,
-            }),
-            -1, // Loop indefinitely
-            false // Do not reverse, just keep rotating
-        );
-    }, []);
-
-    const logoStyle = useAnimatedStyle(() => ({
-        opacity: logoOpacity.value,
-        transform: [{ rotate: `${rotation.value}deg` }] // Apply the rotation
-    }));
-
-    const titleStyle = useAnimatedStyle(() => ({
-        transform: [{ scale: titleScale.value }] // Apply the pulsing effect on the title
-    }));
 
     return (
         <View style={mainPageStyles.mainContainer}>
+            <View style={mainPageStyles.topView}>
+            </View>
             <View style={mainPageStyles.container}>
-                <View style={mainPageStyles.titlecontainer}>
-                    <Animated.Image style={[mainPageStyles.logo, logoStyle]} source={logo} />
-                    <Animated.Text style={[mainPageStyles.title, titleStyle]}>KREW</Animated.Text>
-                </View>
+                <Image source={logo} style={mainPageStyles.logo}/>
             </View>
             <View style={mainPageStyles.firstChatContainer}>
                 <Text style={mainPageStyles.logintitle}>Welcome Back!</Text>
@@ -86,7 +55,7 @@ export default function Index() {
                     value={phoneNumber}
                     onChangePhoneNumber={handlePhoneNumber}
                     initialValue='91'
-                    textStyle={{ color: 'white', fontWeight: '700' }}
+                    textStyle={{ color: Colors.tertiary, fontWeight: '500' }}
                     style={mainPageStyles.phoneContainer}
                 />
                 <Pressable
@@ -97,8 +66,9 @@ export default function Index() {
                     <Text style={mainPageStyles.textInButton}>Get OTP</Text>
                 </Pressable>
             </View>
+            <View style={{backgroundColor:Colors.primary, height:200, alignItems:'center', justifyContent:'center',borderTopStartRadius:20, borderTopEndRadius:20, borderColor: Colors.secondary}}>
             <View style={mainPageStyles.bottomContain}>
-                <View>
+                <View style={{}}>
                     <Text style={mainPageStyles.numberHeading}>100%</Text>
                     <Text style={mainPageStyles.firstText2}>Privacy</Text>
                 </View>
@@ -112,6 +82,7 @@ export default function Index() {
                     <Text style={mainPageStyles.numberHeading}>3cr+</Text>
                     <Text style={mainPageStyles.thirdText2}>Happy Customers</Text>
                 </View>
+            </View>
             </View>
         </View>
     );

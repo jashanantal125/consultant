@@ -1,4 +1,5 @@
 
+import { Colors } from '@/constants/Colors';
 import { StyleSheet} from 'react-native';
 
 const editProfileStyles = StyleSheet.create({
@@ -8,7 +9,7 @@ formContainer:{
   },
 
   button:{
-  backgroundColor: '#4CAF50'
+  backgroundColor: Colors.primary
   }
 })
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Colors } from '@/constants/Colors';
 
 interface Chat {
   id: string;
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   chatCard: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.primary,
     padding: 16,
     borderRadius: 10,
     marginBottom: 10,

@@ -1,3 +1,4 @@
+import { Colors } from '@/constants/Colors';
 import { StyleSheet } from 'react-native';
 import { Dimensions } from 'react-native';
 
@@ -6,85 +7,91 @@ export const mainPageStyles = StyleSheet.create({
 
     mainContainer: {
        flex: 1,
+       backgroundColor:Colors.secondary
+    },
+
+    topView:{
+     backgroundColor:Colors.primary,
+     height:50,
+     marginBottom:10
     },
 
     container: {
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#4CAF50',
+        marginTop:50,
+        borderWidth:2,
+        marginHorizontal:50,
+        borderRadius:10,
+        borderColor:Colors.primary
     },
 
     secondContainer: {
         flex: 1,
-        backgroundColor: '#4CAF50',
+        backgroundColor: Colors.secondary,
         alignItems: 'center',
     },
+    logo:{
+        height:100, width:200, resizeMode:'contain'
+    },
     titlecontainer:{
-        backgroundColor:'',
-        borderRadius:20,
-        borderWidth:4,
-        borderColor:'white',
         alignItems:'center',
     },
     title: {
         fontSize: 28,
         fontWeight: '800',
-        color:'white',
+        color:Colors.primary,
         padding:20,
         paddingHorizontal:30,
 
     },
 
     logintitle: {
-        fontSize: 24,
+        fontSize: 28,
         fontWeight:'700',
-        color:'white',
-        marginHorizontal:14
+        color:Colors.tertiary,
+        marginHorizontal:18
     },
 
     loginsubtitle: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight:'400',
-        color:'white',
-        margin:14
+        color:Colors.tertiary,
+        marginHorizontal:18
     },
 
     firstChatContainer: {
-        backgroundColor: '#4CAF50',
+        backgroundColor: Colors.secondary,
+        marginTop:'10%',
+        gap:12
     },
 
     phoneContainer: {
-        borderColor: 'white',
+        borderColor: Colors.tertiary,
         borderWidth: 1,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
         padding:12,
         marginHorizontal:20, 
-        marginBottom:20
-    },
-    logo:{
-        height:80,
-        width:80,
-        marginTop:12
+        marginVertical:20
     },
 
     button: {
-        backgroundColor: 'black',
+        backgroundColor: Colors.primary,
         borderRadius: 25,
-        borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 22,
         shadowColor: 'red',
-        width:'90%'
+        width:'90%',
+        marginTop:12,
     },
 
     textInButton: {
-        color: 'white',
+        color: Colors.secondary,
         fontSize: 16,
         fontWeight: 'bold',
         alignSelf:'center',
-        padding:8,
+        padding:12,
     },
 
     whiteArrow: {
@@ -96,13 +103,7 @@ export const mainPageStyles = StyleSheet.create({
     },
 
     bottomContain: {
-        height: '10%',
-        position: 'absolute',
-        display: 'flex-end',
         flexDirection: 'row',
-        top: '80%',
-        width: '20%',
-        left: '10%',
         alignContent: 'center',
         alignItems: 'center',
     },
@@ -112,14 +113,14 @@ export const mainPageStyles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 18,
-        color: 'white',
+        color: Colors.secondary,
     },
 
     firstText2: {
         alignContent: 'center',
         textAlign: 'center',
         fontSize: 14,
-        color: 'white',
+        color:Colors.secondary,
     },
 
     secondText2: {
@@ -127,20 +128,20 @@ export const mainPageStyles = StyleSheet.create({
         alignContent: 'center',
         textAlign: 'center',
         fontSize: 14,
-        color: 'white',
+        color: Colors.secondary,
     },
 
     thirdText2: {
         alignContent: 'center',
         textAlign: 'center',
         fontSize: 14,
-        color: 'white',
+        color:Colors.secondary,
     },
 
     line: {
         height: '100%',
         width: 1,
-        backgroundColor: 'white',
+        backgroundColor: Colors.secondary,
         marginHorizontal: 15,
     },
     flag: {

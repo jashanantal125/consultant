@@ -2,6 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { Colors } from '@/constants/Colors';
 
 interface Review {
   id: string;
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   reviewCard: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.primary,
     padding: 16,
     borderRadius: 10,
     marginBottom: 10,

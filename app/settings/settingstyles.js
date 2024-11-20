@@ -1,9 +1,10 @@
+import { Colors } from '@/constants/Colors';
 import { StyleSheet } from 'react-native';
 
 const settingsPageStyles = StyleSheet.create({
 
     profileContainer: {
-        backgroundColor: '#4CAF50',
+        backgroundColor: Colors.primary,
         padding: 20,
         alignItems: 'center',
       },

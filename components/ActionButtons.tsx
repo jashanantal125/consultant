@@ -2,6 +2,7 @@
 import React from 'react';
 import { Text, StyleSheet, View, Pressable, GestureResponderEvent } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Colors } from '@/constants/Colors';
 
 interface CustomButtonProps {
     title: string;
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#4CAF50',
+        backgroundColor: Colors.primary,
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,

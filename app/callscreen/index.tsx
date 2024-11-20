@@ -1,3 +1,4 @@
+import { Colors } from '@/constants/Colors';
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity, Linking, Alert} from 'react-native';
 
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   chatCard: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.primary,
     padding: 16,
     borderRadius: 10,
     marginBottom: 10,

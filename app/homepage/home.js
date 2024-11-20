@@ -1,3 +1,4 @@
+import { Colors } from '@/constants/Colors';
 import { StyleSheet, Dimensions, Platform } from 'react-native';
 
 const { width } = Dimensions.get('window');
@@ -5,14 +6,16 @@ const { width } = Dimensions.get('window');
 const homePageStyles = StyleSheet.create({
   Container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: Colors.secondary,
   },
   profileContainer: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.primary,
     paddingVertical: 12,
     paddingHorizontal: 20,
-    marginBottom: 10,  // Space below profile section
-    flexDirection:'row', alignItems:'center', gap:14
+    marginBottom: 10, // Space below profile section
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
   },
   mainText: {
     fontSize: 26,
@@ -22,16 +25,16 @@ const homePageStyles = StyleSheet.create({
   },
   subtitleText: {
     fontSize: 18,
-    color: '#4CAF50',
+    color: Colors.primary,
     marginTop: 8,
     paddingHorizontal: 20,
-    fontWeight:'600',
-    paddingRight:40
+    fontWeight: '600',
+    paddingRight: 40,
   },
   bannerContainer: {
     alignContent: 'center',
     alignItems: 'center',
-    marginVertical: 20,  // Adds vertical spacing around the carousel
+    marginVertical: 20, // Adds vertical spacing around the carousel
     zIndex: 1,
   },
   carouselItem: {
@@ -50,7 +53,7 @@ const homePageStyles = StyleSheet.create({
   },
   secondIconContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
   },
   carouselParent: {
     height: 200,

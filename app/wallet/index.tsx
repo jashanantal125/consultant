@@ -1,3 +1,4 @@
+import { Colors } from '@/constants/Colors';
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   balanceCard: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.primary,
     padding: 20,
     borderRadius: 10,
     alignItems: 'center',

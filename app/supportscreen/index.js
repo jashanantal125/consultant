@@ -1,4 +1,5 @@
 
+import { Colors } from '@/constants/Colors';
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, FlatList, KeyboardAvoidingView, Platform, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.primary,
     borderBottomWidth: 1,
     borderBottomColor: '#EEE',
   },
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
   },
   messageContainer: {
     alignSelf: 'flex-end',
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.primary,
     borderRadius: 8,
     padding: 8,
     marginBottom: 8,
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   sendButton: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.primary,
     borderRadius: 20,
     paddingVertical: 10,
     paddingHorizontal: 20,
