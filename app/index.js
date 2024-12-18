@@ -5,27 +5,43 @@ import { useNavigation } from '@react-navigation/native';
 import { mainPageStyles } from './main';
 import { Colors } from '@/constants/Colors';
 import { sendOtp } from '../app/api/auth/auth';
+import useUserStore from '../stores/userStore';
 
 const logo = require('../assets/images/krewlogo.png');
 
 const Index = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const navigation = useNavigation();
-
   const handlePhoneNumber = (value) => setPhoneNumber(value);
-
+  const { user, setUserData, clearUserData } = useUserStore((state) => state);
   // Function to handle OTP submission
   const handleSubmit = async () => {
     try {
       // Call the API function
       const data = await sendOtp(phoneNumber);
-
-      // Handle the response
       if (data?.message?.success_key === 1) {
-        // Alert.alert('Success', 'OTP sent!');
-        navigation.navigate('homepage'); // Navigate to homepage on success
+        console.log('Data', data?.message);
+        setUserData(data?.message);
+        navigation.navigate('optVerify'); // Navigate to homepage on success
       } else {
-        Alert.alert('Error', 'Sorry, you are not registered!');
+        Alert.alert(
+          'User Not Registered',
+          'You are not registered with Krew. If you want to register, proceed to the next step. Otherwise, you can cancel.',
+          [
+            {
+              text: 'Cancel', // This button closes the alert and does nothing
+              style: 'cancel',
+            },
+            {
+              text: 'Proceed', // This button navigates to RegistrationStep1
+              onPress: () =>
+                navigation.navigate('RegistrationStep1', {
+                  phoneNumber: phoneNumber,
+                }),
+            },
+          ],
+          { cancelable: false } // Disable closing the alert by tapping outside
+        );
       }
     } catch (error) {
       // Handle errors
@@ -42,6 +58,7 @@ const Index = () => {
       {/* Logo */}
       <View style={mainPageStyles.container}>
         <Image source={logo} style={mainPageStyles.logo} />
+        <Text style={mainPageStyles.consultantTitle}>CONSULTANT</Text>
       </View>
 
       {/* Welcome Text */}
@@ -74,36 +91,14 @@ const Index = () => {
         </Pressable>
       </View>
 
-      {/* Bottom Info Section */}
       <View
         style={{
           backgroundColor: Colors.primary,
-          height: 200,
+          height: 50,
           alignItems: 'center',
           justifyContent: 'center',
-          borderTopStartRadius: 20,
-          borderTopEndRadius: 20,
         }}
-      >
-        <View style={mainPageStyles.bottomContain}>
-          <View>
-            <Text style={mainPageStyles.numberHeading}>100%</Text>
-            <Text style={mainPageStyles.firstText2}>Privacy</Text>
-          </View>
-          <View style={mainPageStyles.line} />
-          <View>
-            <Text style={mainPageStyles.numberHeading}>10,000+</Text>
-            <Text style={mainPageStyles.secondText2}>
-              Top astrologers of India
-            </Text>
-          </View>
-          <View style={mainPageStyles.line} />
-          <View>
-            <Text style={mainPageStyles.numberHeading}>3cr+</Text>
-            <Text style={mainPageStyles.thirdText2}>Happy Customers</Text>
-          </View>
-        </View>
-      </View>
+      ></View>
     </View>
   );
 };

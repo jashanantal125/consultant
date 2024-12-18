@@ -16,13 +16,8 @@ export const mainPageStyles = StyleSheet.create({
 
   container: {
     alignItems: 'center',
-    justifyContent: 'center',
     marginTop: 50,
     marginHorizontal: 50,
-    borderBottomWidth: 1,
-    borderTopWidth: 1,
-    // borderRadius: 10,
-    borderColor: Colors.primary,
     marginVertical: 60,
   },
 
@@ -59,6 +54,13 @@ export const mainPageStyles = StyleSheet.create({
     fontWeight: '400',
     color: Colors.tertiary,
     marginHorizontal: 18,
+  },
+
+  consultantTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#1a5084',
+    alignSelf: 'auto',
   },
 
   firstChatContainer: {

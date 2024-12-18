@@ -18,12 +18,20 @@ import EditProfile from './editProfile'
 import ChatsScreen from './chatscreen' 
 import CallScreen from './callscreen'
 import ChatScreen from './chat'
+import RegistrationStep1 from './register/step1'
+import RegistrationStep2 from './register/step2'
+import ApplicationUnderReview from './register/review'
+import OTPVerification from './register/optVerify'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createDrawerNavigator } from '@react-navigation/drawer';  // Import DrawerNavigator
+
+const queryClient = new QueryClient();
 
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 const Stack = createNativeStackNavigator();
-
+const Drawer = createDrawerNavigator();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
@@ -40,19 +48,55 @@ export default function RootLayout() {
     return null;
   }
 
-  return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+  function HomeDrawer() {
+    return (
+      <Drawer.Navigator screenOptions={{headerShown:false}}>
+        <Drawer.Screen name="Home" component={HomePage} />
+        <Drawer.Screen name="Chat Order Management" component={ChatScreen} />
+        <Drawer.Screen name="Call Order Management" component={CallScreen} />
+        <Drawer.Screen name="Earnings & Payouts" component={Wallet} />
+        <Drawer.Screen name="Chat History" component={ChatScreen} />
+        <Drawer.Screen name="My Profile" component={EditProfile} />
+        <Drawer.Screen name="Support" component={SupportScreen} />
+      </Drawer.Navigator>
+    );
+  }
 
+  return (
+  
+    <GestureHandlerRootView style={{ flex: 1 }}>
+  <QueryClientProvider client={queryClient}>
 <NavigationContainer independent={true}>
-  <Stack.Navigator initialRouteName="index" screenOptions={{ headerBackTitle: '', headerTitleAlign: 'center' }}>
+  <Stack.Navigator initialRouteName="homepage" screenOptions={{ headerBackTitle: '', headerTitleAlign: 'center' }}>
     <Stack.Screen 
       name="index" 
       component={Index}  
       options={{ headerShown: false }} 
     />
+        <Stack.Screen 
+      name="RegistrationStep1" 
+      component={RegistrationStep1}  
+      options={{ headerShown: false }} 
+    />
+      <Stack.Screen 
+      name="RegistrationStep2" 
+      component={RegistrationStep2}  
+      options={{ headerShown: false }} 
+    />
+
+    <Stack.Screen 
+      name="optVerify" 
+      component={OTPVerification}  
+      options={{ headerShown: false }} 
+    />
+    <Stack.Screen 
+      name="review" 
+      component={ApplicationUnderReview}  
+      options={{ headerShown: false }} 
+    />
     <Stack.Screen 
       name="homepage" 
-      component={HomePage} 
+      component={HomeDrawer} 
       options={{ 
         headerTitle: "Home Page", // Set the custom title here
         headerBackTitleVisible: false, 
@@ -132,8 +176,8 @@ export default function RootLayout() {
       }} 
     />
   </Stack.Navigator>
-</NavigationContainer>
-
+  </NavigationContainer>
+    </QueryClientProvider>
     </GestureHandlerRootView>  //check now
   );
 }
